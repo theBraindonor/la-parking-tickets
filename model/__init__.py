@@ -12,3 +12,4 @@ __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License
 __version__ = "1.0"
 
 from model.mappers import *
+from model.load_data_frame import *

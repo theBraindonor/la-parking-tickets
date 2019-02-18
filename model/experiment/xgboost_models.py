@@ -18,7 +18,7 @@ from skopt.space import Integer, Real
 from sklearn.pipeline import Pipeline
 
 from utility import HyperParameters, Runner
-from model import ordinal_data_mapper
+from model import load_data_frame, ordinal_data_mapper
 
 sample = 10000
 iterations = 2
@@ -42,7 +42,7 @@ ordinal_unbalanced_pipeline = Pipeline([
 def test_ordinal_unbalanced_model():
     runner = Runner(
         'model/experiment/output/xgboost_ordinal_unbalanced',
-        'data_scratch/sampled_citations.csv',
+        load_data_frame(),
         'violation',
         ordinal_unbalanced_pipeline,
         hyper_parameters

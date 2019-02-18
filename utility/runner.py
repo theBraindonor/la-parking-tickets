@@ -20,12 +20,12 @@ class Runner:
     def __init__(
             self,
             name,
-            file_prefix,
+            df,
             target,
             estimator,
             hyper_parameters):
         self.name = name
-        self.file_prefix = file_prefix
+        self.df = df
         self.target = target
         self.estimator = estimator
         self.hyper_parameters = hyper_parameters
@@ -57,7 +57,7 @@ class Runner:
             return_train_score=True
         )
 
-        data_frame = pd.read_csv(self.file_prefix, low_memory=False)
+        data_frame = self.df
 
         if sample is not None:
             data_frame = data_frame.sample(n=sample, random_state=random_state)
