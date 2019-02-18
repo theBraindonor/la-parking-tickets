@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    Contains common utility classes and routines for data processing, model building, and model presentation.
+    Contains data pre-processing and sampling tasks
 """
 
 __author__ = "John Hoff"
@@ -11,5 +11,5 @@ __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
 __version__ = "1.0"
 
-from utility.path import *
-from utility.logger import *
+from data.preprocess import *
+from data.sample import *

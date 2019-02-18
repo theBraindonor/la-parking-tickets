@@ -1,3 +1,5 @@
 
 /.idea
 /venv
+/data_scratch
+__pycache__
