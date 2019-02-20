@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    Experiment with several XGBoost Models
+    Experiment with a basic Random Forest model
 """
 
 __author__ = "John Hoff"
@@ -11,40 +11,35 @@ __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
 __version__ = "1.0"
 
-import xgboost as xgb
-
-from skopt.space import Integer, Real
+from skopt.space import Integer
 
 from sklearn.pipeline import Pipeline
+from sklearn.tree import DecisionTreeClassifier
 
 from utility import HyperParameters, Runner
 from model import load_data_frame, ordinal_data_mapper
 
-sample = 10000
+sample = None
 iterations = 2
 
-hyper_parameters = HyperParameters(search_space={
-    'xgb__n_estimators': Integer(50, 500),
-    'xgb__learning_rate': Real(0.1, 0.3),
-    'xgb__gamma': Real(0.0001, 100.0, prior='log-uniform'),
-    'xgb__max_depth': Integer(3, 7),
-    'xgb__colsample_bytree': Real(0.4, 0.8),
-    'xgb__colsample_bylevel': Real(0.4, 0.8),
-    'xgb__colsample_bynode': Real(0.4, 0.8)
+hyper_parameters = HyperParameters({
+    'dt__max_depth': Integer(4, 20),
+    'dt__min_samples_leaf': Integer(6, 120),
+    'dt__min_samples_split': Integer(12, 240)
 })
 
-ordinal_unbalanced_pipeline = Pipeline([
+decision_tree_basic = Pipeline([
     ('mapper', ordinal_data_mapper),
-    ('xgb', xgb.XGBClassifier(tree_method='hist'))
+    ('dt', DecisionTreeClassifier())
 ])
 
 
-def test_ordinal_unbalanced_model():
+def test_decision_tree_basic():
     runner = Runner(
-        'model/experiment/output/xgboost_ordinal_unbalanced',
+        'model/experiment/output/decision_tree_basic',
         load_data_frame(),
         'violation',
-        ordinal_unbalanced_pipeline,
+        decision_tree_basic,
         hyper_parameters
     )
     runner.run_classification_search_experiment(
@@ -57,4 +52,4 @@ def test_ordinal_unbalanced_model():
 
 
 if __name__ == '__main__':
-    test_ordinal_unbalanced_model()
+    test_decision_tree_basic()
