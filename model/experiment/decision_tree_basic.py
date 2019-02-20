@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    Experiment with a basic Random Forest model
+    Experiment with a basic decision tree model
 """
 
 __author__ = "John Hoff"
@@ -11,21 +11,23 @@ __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
 __version__ = "1.0"
 
-from skopt.space import Integer
+from skopt.space import Categorical, Integer, Real
 
 from sklearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
 
 from utility import HyperParameters, Runner
-from model import load_data_frame, ordinal_data_mapper
+from model import load_sample_data_frame, ordinal_data_mapper
 
+# Overall runtime on a 20% sample is about 10 minutes for 24 iterations
 sample = None
-iterations = 2
+iterations = 24
 
 hyper_parameters = HyperParameters({
-    'dt__max_depth': Integer(4, 20),
-    'dt__min_samples_leaf': Integer(6, 120),
-    'dt__min_samples_split': Integer(12, 240)
+    'dt__criterion': Categorical(['gini', 'entropy']),
+    'dt__max_depth': Integer(4, 24),
+    'dt__min_samples_leaf': Real(0.000001, 0.001),
+    'dt__min_samples_split': Real(0.000002, 0.002)
 })
 
 decision_tree_basic = Pipeline([
@@ -37,7 +39,7 @@ decision_tree_basic = Pipeline([
 def test_decision_tree_basic():
     runner = Runner(
         'model/experiment/output/decision_tree_basic',
-        load_data_frame(),
+        load_sample_data_frame(),
         'violation',
         decision_tree_basic,
         hyper_parameters

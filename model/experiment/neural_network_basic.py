@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    Experiment with a basic Random Forest model
+    Experiment with a basic neural network model
 """
 
 __author__ = "John Hoff"
@@ -15,9 +15,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.neural_network import MLPClassifier
 
 from utility import Runner
-from model import load_data_frame, ordinal_data_mapper
+from model import load_sample_data_frame, ordinal_data_mapper
 
-sample = 100000
+sample = 200000
 
 neural_network_basic = Pipeline([
     ('mapper', ordinal_data_mapper),
@@ -28,7 +28,7 @@ neural_network_basic = Pipeline([
 def test_neural_network_basic():
     runner = Runner(
         'model/experiment/output/neural_network_basic',
-        load_data_frame(),
+        load_sample_data_frame(),
         'violation',
         neural_network_basic,
         None

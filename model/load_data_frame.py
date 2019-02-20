@@ -15,10 +15,17 @@ import pandas as pd
 
 from utility import use_project_path
 
-data_filename = 'data_scratch/sampled_citations.csv'
+sample_data_filename = 'data_scratch/sampled_citations.csv'
+data_filename = 'data_scratch/preprocessed_citations.csv'
+
+
+def load_sample_data_frame():
+    use_project_path()
+    data_frame = pd.read_csv(sample_data_filename, dtype='float')
+    return data_frame
 
 
 def load_data_frame():
     use_project_path()
-    data_frame = pd.read_csv(data_filename, low_memory=False, dtype='float')
+    data_frame = pd.read_csv(data_filename, dtype='float')
     return data_frame

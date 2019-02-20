@@ -18,9 +18,10 @@ from skopt.space import Integer, Real
 from sklearn.pipeline import Pipeline
 
 from utility import HyperParameters, Runner
-from model import load_data_frame, ordinal_data_mapper
+from model import load_sample_data_frame, ordinal_data_mapper
 
-sample = 10000
+# Takes about 10 minutes per iteration at a 20% sample rate
+sample = None
 iterations = 2
 
 hyper_parameters = HyperParameters(search_space={
@@ -42,7 +43,7 @@ lightgbm_basic = Pipeline([
 def test_lightgbm_basic():
     runner = Runner(
         'model/experiment/output/lightgbm_basic',
-        load_data_frame(),
+        load_sample_data_frame(),
         'violation',
         lightgbm_basic,
         hyper_parameters

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    Experiment with a basic Random Forest model
+    Experiment with a basic complement naive bayes model.
 """
 
 __author__ = "John Hoff"
@@ -12,23 +12,25 @@ __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License
 __version__ = "1.0"
 
 from sklearn.pipeline import Pipeline
-from sklearn.naive_bayes import GaussianNB
+from sklearn.naive_bayes import BernoulliNB
 
 from utility import Runner
-from model import load_data_frame, one_hot_data_mapper
+from model import load_sample_data_frame, binned_geo_one_hot_data_mapper
 
-sample = None
+# Running more than a million observation starts to hit the memory limits on my 32GB home machine.
+# Runtime is about 2 two minutes
+sample = 1000000
 
 gaussian_naive_bayes_basic = Pipeline([
-    ('mapper', one_hot_data_mapper),
-    ('ng', GaussianNB())
+    ('mapper', binned_geo_one_hot_data_mapper),
+    ('gnb', BernoulliNB())
 ])
 
 
 def test_gaussian_naive_bayes_basic():
     runner = Runner(
-        'model/experiment/output/gaussian_naive_bayes_basic',
-        load_data_frame(),
+        'model/experiment/output/complement_naive_bayes_basic',
+        load_sample_data_frame(),
         'violation',
         gaussian_naive_bayes_basic,
         None

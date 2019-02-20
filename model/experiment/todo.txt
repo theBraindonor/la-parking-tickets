@@ -1,0 +1,11 @@
+ExtraTreesClassifier
+KNeighborsClassifier
+LinearDiscriminantAnalysis
+LinearSVC
+LogisticRegression
+NearestCentroid
+QuadraticDiscriminantAnalysis
+RadiusNeighborsClassifier
+RidgeClassifier
+GradientBoostingClassifier
+SGDClassifier
