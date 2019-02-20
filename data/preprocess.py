@@ -218,6 +218,128 @@ make_codes = {
     'Renault': 57
 }
 
+luxury_make_types = {
+    0: 0,   # Other
+    1: 0,   # Oldsmobile
+    2: 0,   # Honda
+    3: 0,   # Toyota
+    4: 1,   # Range Rover
+    5: 0,   # Ford
+    6: 0,   # Dodge
+    7: 0,   # Mazda
+    8: 0,   # Chevrolet
+    9: 1,   # BMW
+    10: 0,  # Jeep
+    11: 0,  # Hyundai
+    12: 1,  # Cadillac
+    13: 1,  # Audi
+    14: 0,  # Volkswagen
+    15: 1,  # Mercedes Benz
+    16: 0,  # Isuzu
+    17: 1,  # Lexus
+    18: 0,  # Nissan
+    19: 0,  # Chrysler
+    20: 1,  # Infinity
+    21: 1,  # Jaguar
+    22: 0,  # Mitsubishi
+    23: 0,  # Subaru
+    24: 0,  # KIA
+    25: 1,  # Acura
+    26: 0,  # MINI
+    27: 0,  # GMC
+    28: 1,  # Lincoln
+    29: 1,  # Volvo
+    30: 0,  # Scion
+    31: 1,  # Hummer
+    32: 0,  # Pontiac
+    33: 0,  # Buick
+    34: 0,  # Saab
+    35: 0,  # Saturn
+    36: 0,  # Plymouth
+    37: 0,  # Fiat
+    38: 1,  # Maserati
+    39: 0,  # Geo
+    40: 0,  # Suzuki
+    41: 1,  # Tesla
+    42: 1,  # Grumman
+    43: 0,  # Smart
+    44: 1,  # Porsche
+    45: 0,  # Daewoo
+    46: 0,  # Kawasaki
+    47: 0,  # Datsun
+    48: 1,  # Triumph
+    49: 0,  # Yamaha
+    50: 1,  # Sterling
+    51: 1,  # Lamborghini
+    52: 1,  # Bentley
+    53: 1,  # Ferrari
+    54: 1,  # Alfa Romeo
+    55: 1,  # Aston-Martin
+    56: 1,  # Rolls-Royce
+    57: 0   # Renault
+}
+
+domestic_make_types = {
+    0: 0,  # Other
+    1: 1,  # Oldsmobile
+    2: 0,  # Honda
+    3: 0,  # Toyota
+    4: 0,  # Range Rover
+    5: 1,  # Ford
+    6: 1,  # Dodge
+    7: 0,  # Mazda
+    8: 1,  # Chevrolet
+    9: 0,  # BMW
+    10: 1,  # Jeep
+    11: 0,  # Hyundai
+    12: 1,  # Cadillac
+    13: 0,  # Audi
+    14: 0,  # Volkswagen
+    15: 0,  # Mercedes Benz
+    16: 0,  # Isuzu
+    17: 0,  # Lexus
+    18: 0,  # Nissan
+    19: 1,  # Chrysler
+    20: 0,  # Infinity
+    21: 0,  # Jaguar
+    22: 0,  # Mitsubishi
+    23: 0,  # Subaru
+    24: 0,  # KIA
+    25: 0,  # Acura
+    26: 0,  # MINI
+    27: 1,  # GMC
+    28: 1,  # Lincoln
+    29: 0,  # Volvo
+    30: 0,  # Scion
+    31: 1,  # Hummer
+    32: 1,  # Pontiac
+    33: 1,  # Buick
+    34: 0,  # Saab
+    35: 1,  # Saturn
+    36: 1,  # Plymouth
+    37: 0,  # Fiat
+    38: 0,  # Maserati
+    39: 1,  # Geo
+    40: 0,  # Suzuki
+    41: 1,  # Tesla
+    42: 0,  # Grumman
+    43: 0,  # Smart
+    44: 0,  # Porsche
+    45: 0,  # Daewoo
+    46: 0,  # Kawasaki
+    47: 0,  # Datsun
+    48: 0,  # Triumph
+    49: 0,  # Yamaha
+    50: 0,  # Sterling
+    51: 0,  # Lamborghini
+    52: 0,  # Bentley
+    53: 0,  # Ferrari
+    54: 0,  # Alfa Romeo
+    55: 0,  # Aston-Martin
+    56: 0,  # Rolls-Royce
+    57: 0  # Renault
+}
+
 # Color codes are not managed very cleanly.  I believe these are the best mappings for it based
 # on looking at the raw data.
 code_code_mappings = {
@@ -264,7 +386,10 @@ column_names = [
     'make',
     'color',
     'latitude',
-    'longitude'
+    'longitude',
+    'out_of_state',
+    'luxury_make',
+    'domestic_make'
 ]
 
 if __name__ == '__main__':
@@ -366,6 +491,15 @@ if __name__ == '__main__':
                         latitude is not None and
                         longitude is not None
                 ):
+
+                    # With required source fields scrubbed, it is time to engineer a couple of features.
+                    out_of_state = 0
+                    if car_state != 5:
+                        out_of_state = 1
+
+                    luxury_make = luxury_make_types[car_make]
+                    domestic_make = domestic_make_types[car_make]
+
                     writer.writerow([
                         violation_code,
                         issue_month,
@@ -375,7 +509,10 @@ if __name__ == '__main__':
                         car_make,
                         car_color,
                         latitude,
-                        longitude
+                        longitude,
+                        out_of_state,
+                        luxury_make,
+                        domestic_make
                     ])
                     processed_records += 1
 

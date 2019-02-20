@@ -17,7 +17,7 @@ from sklearn.neural_network import MLPClassifier
 from utility import Runner
 from model import load_data_frame, ordinal_data_mapper
 
-sample = 50000
+sample = 100000
 
 neural_network_basic = Pipeline([
     ('mapper', ordinal_data_mapper),
