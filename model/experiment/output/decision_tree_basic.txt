@@ -1,0 +1,106 @@
+[2019-02-20 15:11:44.550985] Starting HyperParameter Search...
+[2019-02-20 15:19:21.072246] Search Complete.
+
+[2019-02-20 15:19:21.072246] Testing Training Partition...
+[2019-02-20 15:19:22.431615] Testing Complete.
+
+[2019-02-20 15:19:22.431615] Testing Holdout Partition...
+[2019-02-20 15:19:23.181631] Testing Complete.
+
+[2019-02-20 15:19:23.197244] Testing Holdout Partition (probability)...
+[2019-02-20 15:19:24.994117] Testing Complete.
+
+
+Best Score:
+-1.3826943703554524
+
+Best Parameters:
+{'dt__criterion': 'entropy', 'dt__max_depth': 18, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.001054546261691371}
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0       0.76      0.95      0.85    103055
+         1.0       0.53      0.81      0.64     73723
+         2.0       0.40      0.37      0.38     27217
+         3.0       0.62      0.79      0.69     28075
+         4.0       0.30      0.07      0.12     34125
+         5.0       0.54      0.42      0.47     18116
+         6.0       0.40      0.22      0.28     20581
+         7.0       0.44      0.24      0.31      9721
+         8.0       0.49      0.44      0.46     25312
+         9.0       0.29      0.05      0.08      3983
+        10.0       0.24      0.04      0.06     18623
+        11.0       0.33      0.00      0.01      3121
+        12.0       0.00      0.00      0.00      1917
+        13.0       0.18      0.05      0.07       840
+
+   micro avg       0.59      0.59      0.59    368409
+   macro avg       0.39      0.32      0.32    368409
+weighted avg       0.54      0.59      0.54    368409
+
+
+Confusion Matrix:
+       0      1      2      3     4     5     6     7      8    9    10  11  12  13
+0   98292   3116    184    370   251   169   418    79    112    5   59   0   0   0
+1    6113  59703   1046   2710   615   376  1114   110   1724   82   86   0   0  44
+2    2646   6976  10066   1457   886  1137   878   729   1816  109  478  10   0  29
+3    1025   2701    422  22047   316   554   223    93    584    3   90   0   0  17
+4    8226  12218   1974   3264  2448  1393  1376   624   2187   65  324   4   0  22
+5    1928   2746   1902    852   601  7575   642   429   1176   28  224   1   0  12
+6    3335   8136    844   1301   741   432  4543   125    933    6  183   0   0   2
+7     764   2682    966    967   461   595   222  2314    637   12  100   0   0   1
+8    2229   4880   2966   1146   620   723   777   331  11102   77  450   0   0  11
+9     426   2376    211     64    38    34   191     5    402  188   48   0   0   0
+10   2700   6183   3471   1413   754   794   747   332   1461   63  685   4   0  16
+11    498    692    808    125   160   189   120    87    313    8  104  10   0   7
+12    387    624    181     73   123    65   172    33    186    0   62   0   0  11
+13    124    238    108     52    58    52    28    26     93    4   17   1   0  39
+
+Accuracy:
+   Train: 0.596986
+ Testing: 0.594481
+
+Log-Loss: 1.364006
+
+Feature Importance:
+          Feature  Importance
+2            hour    0.384471
+7       longitude    0.261856
+6        latitude    0.253702
+1         weekday    0.079320
+4            make    0.015925
+5           color    0.003846
+10  domestic_make    0.000387
+8    out_of_state    0.000368
+0           month    0.000064
+9     luxury_make    0.000031
+3           state    0.000028
+
+Search Scoring
+    mean_test_score  std_test_score  mean_train_score  std_train_score  mean_fit_time  mean_score_time                                                                                                                                             params
+22        -1.382694        0.001916         -1.273981         0.001552      17.391571         0.387499                    {'dt__criterion': 'entropy', 'dt__max_depth': 18, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.001054546261691371}
+20        -1.384388        0.001665         -1.264134         0.001168      17.508891         0.416094                   {'dt__criterion': 'entropy', 'dt__max_depth': 19, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0010236682848017414}
+19        -1.388062        0.002842         -1.306853         0.002247      16.985665         0.422403                   {'dt__criterion': 'entropy', 'dt__max_depth': 17, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0012717796921720682}
+23        -1.388699        0.004214         -1.287314         0.004890      17.446892         0.431246                   {'dt__criterion': 'entropy', 'dt__max_depth': 16, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0009651682004594987}
+21        -1.389283        0.002204         -1.266943         0.001019      17.697721         0.390621                   {'dt__criterion': 'entropy', 'dt__max_depth': 21, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0010697687352881303}
+17        -1.392785        0.003307         -1.292569         0.000609      17.460712         0.407975                   {'dt__criterion': 'entropy', 'dt__max_depth': 24, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0012779611153763914}
+14        -1.393966        0.002729         -1.314293         0.001877      16.934263         0.408903                   {'dt__criterion': 'entropy', 'dt__max_depth': 19, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0014386804818028462}
+18        -1.398066        0.003779         -1.316805         0.001371      16.940121         0.426500                   {'dt__criterion': 'entropy', 'dt__max_depth': 22, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0015014125703070504}
+12        -1.400866        0.002719         -1.311217         0.001048      11.428481         0.431903                      {'dt__criterion': 'gini', 'dt__max_depth': 21, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0013440426655120172}
+4         -1.402733        0.002672         -1.334577         0.001979      16.348732         0.421814   {'dt__criterion': 'entropy', 'dt__max_depth': 22, 'dt__min_samples_leaf': 0.0003684427425211241, 'dt__min_samples_split': 0.0014168101083515492}
+11        -1.405489        0.002674         -1.319175         0.001589      11.684327         0.415815                      {'dt__criterion': 'gini', 'dt__max_depth': 24, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.0014443117933285062}
+3         -1.409808        0.002256         -1.334405         0.000944      15.986324         0.412500    {'dt__criterion': 'entropy', 'dt__max_depth': 23, 'dt__min_samples_leaf': 0.0005466884568832627, 'dt__min_samples_split': 0.001216240505587354}
+6         -1.412436        0.002842         -1.360510         0.001683      15.997442         0.443119   {'dt__criterion': 'entropy', 'dt__max_depth': 22, 'dt__min_samples_leaf': 0.0003879784108746102, 'dt__min_samples_split': 0.0018076784563204962}
+15        -1.413566        0.003015         -1.357571         0.001586      16.603770         0.402269                                   {'dt__criterion': 'entropy', 'dt__max_depth': 24, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 0.002}
+1         -1.416606        0.002774         -1.365835         0.001597      15.771927         0.418713  {'dt__criterion': 'entropy', 'dt__max_depth': 23, 'dt__min_samples_leaf': 0.00044708621896927047, 'dt__min_samples_split': 0.0018410156720214332}
+7         -1.418995        0.002218         -1.372325         0.001188      11.037952         0.436014      {'dt__criterion': 'gini', 'dt__max_depth': 19, 'dt__min_samples_leaf': 0.00034125159645935135, 'dt__min_samples_split': 0.001812741300604641}
+5         -1.437448        0.002297         -1.400164         0.001044      10.788867         0.440623       {'dt__criterion': 'gini', 'dt__max_depth': 15, 'dt__min_samples_leaf': 5.8829291752330474e-05, 'dt__min_samples_split': 0.00199839832669618}
+10        -1.445573        0.003938         -1.413143         0.002818      14.793933         0.415624                   {'dt__criterion': 'entropy', 'dt__max_depth': 16, 'dt__min_samples_leaf': 0.001, 'dt__min_samples_split': 0.0010267094121573605}
+13        -1.451768        0.002872         -1.418035         0.000949      10.516322         0.442808                      {'dt__criterion': 'gini', 'dt__max_depth': 22, 'dt__min_samples_leaf': 0.001, 'dt__min_samples_split': 0.0014354813558002714}
+8         -1.483647        0.003059         -1.141299         0.000345      18.036830         0.417069   {'dt__criterion': 'entropy', 'dt__max_depth': 22, 'dt__min_samples_leaf': 0.00015687930023336612, 'dt__min_samples_split': 0.000301810024760369}
+16        -1.612273        0.002443         -1.315708         0.001570      15.524990         0.429015                                   {'dt__criterion': 'entropy', 'dt__max_depth': 12, 'dt__min_samples_leaf': 1e-06, 'dt__min_samples_split': 2e-06}
+2         -1.642258        0.002188         -1.639182         0.000533       7.618945         0.393749      {'dt__criterion': 'gini', 'dt__max_depth': 7, 'dt__min_samples_leaf': 0.00037061425918813977, 'dt__min_samples_split': 0.0015428729239529298}
+9         -1.732424        0.001583         -1.731484         0.000405       8.019887         0.400000    {'dt__criterion': 'entropy', 'dt__max_depth': 5, 'dt__min_samples_leaf': 0.0002730185409210631, 'dt__min_samples_split': 0.0019625158412174253}
+0         -1.736740        0.002238         -1.735867         0.000534       6.151559         0.409373        {'dt__criterion': 'gini', 'dt__max_depth': 5, 'dt__min_samples_leaf': 0.000872291566935554, 'dt__min_samples_split': 0.0013439562405326403}
+

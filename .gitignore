@@ -3,4 +3,4 @@
 /venv
 /data_scratch
 __pycache__
-/model/experiment/output
+/model/experiment/output/*.p

@@ -1,0 +1,84 @@
+[2019-02-20 15:28:12.102780] Starting HyperParameter Search...
+[2019-02-20 16:08:15.641570] Search Complete.
+
+[2019-02-20 16:08:15.641570] Testing Training Partition...
+[2019-02-20 16:08:58.637871] Testing Complete.
+
+[2019-02-20 16:08:58.637871] Testing Holdout Partition...
+[2019-02-20 16:09:13.694605] Testing Complete.
+
+[2019-02-20 16:09:13.710230] Testing Holdout Partition (probability)...
+[2019-02-20 16:09:29.978501] Testing Complete.
+
+
+Best Score:
+-1.3105350281153978
+
+Best Parameters:
+{'lgb__colsample_bytree': 0.8455977632243886, 'lgb__learning_rate': 0.031086349972961135, 'lgb__max_bin': 217, 'lgb__min_child_samples': 15, 'lgb__n_estimators': 177, 'lgb__num_leaves': 52, 'lgb__subsample': 0.5128768967419247}
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0       0.69      0.97      0.81    102942
+         1.0       0.53      0.79      0.63     73878
+         2.0       0.45      0.41      0.43     27215
+         3.0       0.69      0.80      0.74     27972
+         4.0       0.36      0.07      0.12     34252
+         5.0       0.63      0.46      0.53     18167
+         6.0       0.54      0.18      0.27     20572
+         7.0       0.61      0.34      0.44      9658
+         8.0       0.54      0.46      0.50     25344
+         9.0       0.69      0.10      0.18      4112
+        10.0       0.41      0.05      0.09     18490
+        11.0       0.56      0.03      0.06      3053
+        12.0       0.70      0.18      0.29      1885
+        13.0       0.64      0.27      0.38       869
+
+   micro avg       0.61      0.61      0.61    368409
+   macro avg       0.58      0.37      0.39    368409
+weighted avg       0.57      0.61      0.55    368409
+
+
+Confusion Matrix:
+       0      1      2      3     4     5     6     7      8    9    10  11   12   13
+0   99855   2258    259    142    86    79    97    33    118    0    8   1    0    6
+1   11162  58151    702   1996   147   112   253    31   1211   59   37  14    1    2
+2    3601   6391  11134   1079   870   999   379   563   1595   36  493  22   18   35
+3    1499   2546    295  22487   383   228   101    52    336    0   34   0    0   11
+4   10214  12182   1774   2798  2551  1228   734   487   1934   39  209   9   47   46
+5    2834   2483   1525    704   586  8296   318   261   1018    5  117   3   13    4
+6    5682   7984    646    658   552   311  3692    79    829    9  109   5   11    5
+7     824   2461   1057    772   216   383   111  3288    513    3   15   4   11    0
+8    2867   5199   2711    618   536   734   468   222  11723   14  225   4   20    3
+9     681   2392    113     26    29    13    23     5    385  425   16   2    2    0
+10   3601   5905   3357   1030   760   650   455   266   1469   22  938   9   15   13
+11    571    705    743    102   152   167    79    67    281    3   77  96    8    2
+12    428    506    136     45    93    45    59    56    144    0   22   1  342    8
+13    205    154     72     33    56    24    13    11     54    0   12   0    0  235
+
+Accuracy:
+   Train: 0.607534
+ Testing: 0.605884
+
+Log-Loss: 1.309127
+
+Feature Importance:
+          Feature  Importance
+7       longitude       43077
+6        latitude       41988
+2            hour       17887
+1         weekday        7721
+4            make        6874
+5           color        3645
+0           month        2550
+10  domestic_make         933
+9     luxury_make         688
+3           state         557
+8    out_of_state         458
+
+Search Scoring
+   mean_test_score  std_test_score  mean_train_score  std_train_score  mean_fit_time  mean_score_time                                                                                                                                                                                                                               params
+0        -1.310535        0.001115         -1.297826         0.001091     423.555334       177.563429  {'lgb__colsample_bytree': 0.8455977632243886, 'lgb__learning_rate': 0.031086349972961135, 'lgb__max_bin': 217, 'lgb__min_child_samples': 15, 'lgb__n_estimators': 177, 'lgb__num_leaves': 52, 'lgb__subsample': 0.5128768967419247}
+1        -1.744968        0.000820         -1.743477         0.000248     328.317958       129.291314    {'lgb__colsample_bytree': 0.6278807168485449, 'lgb__learning_rate': 0.00811503484796032, 'lgb__max_bin': 71, 'lgb__min_child_samples': 35, 'lgb__n_estimators': 194, 'lgb__num_leaves': 24, 'lgb__subsample': 0.5304435282445127}
+

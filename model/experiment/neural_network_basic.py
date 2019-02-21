@@ -17,6 +17,7 @@ from sklearn.neural_network import MLPClassifier
 from utility import Runner
 from model import load_sample_data_frame, one_hot_data_mapper
 
+# Overall runtime on a 20% sample is about 6 hours
 sample = None
 
 neural_network_basic = Pipeline([
