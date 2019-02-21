@@ -40,6 +40,22 @@ Hyper-Parameters: {
 }
 ```
 
+## Extra Trees
+
+Performed on a 20% Sample; 2 Iterations (More to Come)
+
+```
+Accuracy: 0.443827
+Log-Loss: 1.798286
+```
+
+## Gradient Boosting
+
+```
+Accuracy: 0.546133
+Log-Loss: 1.487148
+```
+
 ## LightGBM Model
 
 Performed on a 20% Sample; 2 Iterations (More to Come)
@@ -52,24 +68,26 @@ Log-Loss: 1.309127
 
 ## Neural Network Model
 
-Performed on 200k Sample; Single Iteration
+Performed on 200k Sample; Single Iteration; ~45 minute runtime
 
 ```
-Accuracy:
-Log-Loss
+Accuracy: 0.580720
+Log-Loss: 1.393909
 ```
 
 ## Random Forest Model
 
+Performed on 200k Sample; 2 Iterations (More to Come) ~30 minute runtime
+
 ```
-Accuracy:
-Log-Loss
+Accuracy: 0.531475
+Log-Loss: 1.525255
 ```
 
 ## XGBoost Model
 
 Performed on a 20% Sample; 2 Iterations (More to Come)
-~ 20 minutes per iteration
+~ 45 minutes per iteration
 
 ```
 Accuracy: 0.574036

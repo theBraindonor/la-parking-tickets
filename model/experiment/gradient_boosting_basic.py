@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    Experiment with a basic XGBoost Model
+    Experiment with a basic gradient boosting model
 """
 
 __author__ = "John Hoff"
@@ -11,41 +11,38 @@ __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
 __version__ = "1.0"
 
-import xgboost as xgb
-
 from skopt.space import Integer, Real
 
+from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.pipeline import Pipeline
 
 from utility import HyperParameters, Runner
 from model import load_sample_data_frame, ordinal_data_mapper
 
-# Takes about 45 minutes per iteration at a 20% sample rate.
-sample = None
-iterations = 24
+sample = 15000
+iterations = 2
 
-hyper_parameters = HyperParameters(search_space={
-    'xgb__n_estimators': Integer(100, 500),
-    'xgb__learning_rate': Real(0.1, 0.3),
-    'xgb__gamma': Real(0.0001, 100.0, prior='log-uniform'),
-    'xgb__max_depth': Integer(3, 7),
-    'xgb__colsample_bytree': Real(0.4, 0.8),
-    'xgb__colsample_bylevel': Real(0.4, 0.8),
-    'xgb__colsample_bynode': Real(0.4, 0.8)
+hyper_parameters = HyperParameters({
+    'gb__learning_rate': Real(0.001, 0.1),
+    'gb__n_estimators': Integer(50, 500),
+    'gb__subsample': Real(0.5, 1),
+    'gb__max_depth': Integer(3, 7),
+    'gb__min_samples_leaf': Real(0.00001, 0.01),
+    'gb__min_samples_split': Real(0.00002, 0.02)
 })
 
-xgboost_basic = Pipeline([
+gradient_boosting_basic = Pipeline([
     ('mapper', ordinal_data_mapper),
-    ('xgb', xgb.XGBClassifier(tree_method='hist'))
+    ('gb', GradientBoostingClassifier())
 ])
 
 
-def test_xgboost_basic():
+def test_gradient_boosting_basic():
     runner = Runner(
-        'model/experiment/output/xgboost_basic',
+        'model/experiment/output/gradient_boosting_basic',
         load_sample_data_frame(),
         'violation',
-        xgboost_basic,
+        gradient_boosting_basic,
         hyper_parameters
     )
     runner.run_classification_search_experiment(
@@ -58,4 +55,4 @@ def test_xgboost_basic():
 
 
 if __name__ == '__main__':
-    test_xgboost_basic()
+    test_gradient_boosting_basic()
