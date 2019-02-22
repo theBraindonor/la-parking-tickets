@@ -22,7 +22,7 @@ from model import load_sample_data_frame, ordinal_data_mapper
 
 # Takes about 10 minutes per iteration at a 20% sample rate
 sample = None
-iterations = 2
+iterations = 24
 
 hyper_parameters = HyperParameters(search_space={
     'lgb__n_estimators': Integer(50, 500),

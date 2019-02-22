@@ -31,13 +31,6 @@ Performed on a 20% Sample (1473635 records); 24 Iterations
 ```
 Accuracy: 0.594481
 Log-Loss: 1.364006
-
-Hyper-Parameters: {
-    'dt__criterion': 'entropy',
-    'dt__max_depth': 18,
-    'dt__min_samples_leaf': 1e-06,
-    'dt__min_samples_split': 0.001054546261691371
-}
 ```
 
 ## Extra Trees
@@ -68,7 +61,7 @@ Log-Loss: 1.309127
 
 ## Neural Network Model
 
-Performed on 200k Sample; Single Iteration; ~45 minute runtime
+Performed on 200k Sample; Single Iteration; 8 hour runtime
 
 ```
 Accuracy: 0.627325
@@ -90,6 +83,6 @@ Performed on a 20% Sample; 2 Iterations (More to Come)
 ~ 45 minutes per iteration
 
 ```
-Accuracy: 0.574036
-Log-Loss: 1.378634
+Accuracy: 0.713297
+Log-Loss: 0.946272
 ```
