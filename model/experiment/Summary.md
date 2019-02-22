@@ -71,8 +71,8 @@ Log-Loss: 1.309127
 Performed on 200k Sample; Single Iteration; ~45 minute runtime
 
 ```
-Accuracy: 0.580720
-Log-Loss: 1.393909
+Accuracy: 0.627325
+Log-Loss: 1.232498
 ```
 
 ## Random Forest Model
