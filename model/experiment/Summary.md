@@ -55,8 +55,8 @@ Performed on a 20% Sample; 2 Iterations (More to Come)
 ~ 10 minutes per iteration
 
 ```
-Accuracy: 0.605884
-Log-Loss: 1.309127
+Accuracy: 0.674348
+Log-Loss: 1.082473
 ```
 
 ## Neural Network Model
