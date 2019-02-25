@@ -8,7 +8,7 @@ The goal for most models with hyper-parameters is to run 24 iterations using Bay
 
 ## Bernoulli Naive Bayes
 
-Performed on a 20% Sample (1473635 records); Single Iteration; Maximum size supported by current computing resources.
+Performed on a 20% Sample (1473635 records); Single Iteration
 
 ```
 Accuracy: 0.560130
@@ -17,7 +17,7 @@ Log-Loss: 1.425886
 
 ## Complement Naive Bayes
 
-Performed on a 20% Sample (1473635 records); Single Iteration; Maximum size supported by current computing resources.
+Performed on a 20% Sample (1473635 records); Single Iteration
 
 ```
 Accuracy: 0.560592
@@ -35,11 +35,11 @@ Log-Loss: 1.364006
 
 ## Extra Trees
 
-Performed on a 20% Sample; 2 Iterations (More to Come)
+Performed on a 20% Sample (1473635 records); 24 Iterations
 
 ```
-Accuracy: 0.443827
-Log-Loss: 1.798286
+Accuracy: 0.652468
+Log-Loss: 1.496213
 ```
 
 ## Gradient Boosting
@@ -51,8 +51,7 @@ Log-Loss: 1.487148
 
 ## LightGBM Model
 
-Performed on a 20% Sample; 2 Iterations (More to Come)
-~ 10 minutes per iteration
+Performed on a 20% Sample; 24 Iterations
 
 ```
 Accuracy: 0.674348
@@ -61,7 +60,7 @@ Log-Loss: 1.082473
 
 ## Neural Network Model
 
-Performed on 200k Sample; Single Iteration; 8 hour runtime
+Performed on 200k Sample; Single Iteration
 
 ```
 Accuracy: 0.627325
@@ -79,7 +78,7 @@ Log-Loss: 1.525255
 
 ## XGBoost Model
 
-Performed on a 20% Sample; 2 Iterations (More to Come)
+Performed on a 20% Sample; 24 Iterations
 ~ 45 minutes per iteration
 
 ```

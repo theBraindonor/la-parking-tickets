@@ -20,7 +20,7 @@ from utility import HyperParameters, Runner
 from model import load_sample_data_frame, ordinal_data_mapper
 
 sample = None
-iterations = 2
+iterations = 24
 
 hyper_parameters = HyperParameters(search_space={
     'rf__n_estimators': Integer(50, 500),
