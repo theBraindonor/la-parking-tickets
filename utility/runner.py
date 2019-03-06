@@ -163,3 +163,5 @@ class Runner:
 
         self.hyper_parameters.params = results.best_params_
         self.hyper_parameters.save('%s_params.p' % self.name)
+
+        self.trained_estimator = results.best_estimator_

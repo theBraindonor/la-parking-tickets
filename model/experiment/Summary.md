@@ -72,8 +72,8 @@ Log-Loss: 1.232498
 Performed on 200k Sample; 2 Iterations (More to Come) ~30 minute runtime
 
 ```
-Accuracy: 0.531475
-Log-Loss: 1.525255
+Accuracy: 0.595365
+Log-Loss: 1.330450
 ```
 
 ## XGBoost Model

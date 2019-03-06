@@ -11,7 +11,7 @@ __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
 __version__ = "1.0"
 
-from skopt.space import Integer, Real
+from skopt.space import Categorical, Integer
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
@@ -23,10 +23,11 @@ sample = None
 iterations = 24
 
 hyper_parameters = HyperParameters(search_space={
-    'rf__n_estimators': Integer(50, 500),
-    'rf__max_depth': Integer(4, 16),
-    'rf__min_samples_leaf': Real(0.00001, 0.001),
-    'rf__min_samples_split': Real(0.00002, 0.002)
+    'rf__n_estimators': Integer(50, 100),
+    'rf__criterion': Categorical(['gini', 'entropy']),
+    'rf__max_depth': Integer(4, 18),
+    'rf__max_features': Categorical(['sqrt', 'log2', None]),
+    'rf__bootstrap': Categorical([True, False])
 })
 
 random_forest_basic = Pipeline([
