@@ -13,8 +13,6 @@ __version__ = "1.0"
 
 import xgboost as xgb
 
-from skopt.space import Integer, Real
-
 from sklearn.externals import joblib
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
@@ -22,21 +20,10 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 from sklearn_pandas import DataFrameMapper
 
-from utility import HyperParameters, Runner
+from utility import Runner
 from model import load_data_frame
 
 sample = None
-iterations = 24
-
-hyper_parameters = HyperParameters(search_space={
-    'xgb__n_estimators': Integer(100, 500),
-    'xgb__learning_rate': Real(0.1, 0.3),
-    'xgb__gamma': Real(0.0001, 100.0, prior='log-uniform'),
-    'xgb__max_depth': Integer(3, 7),
-    'xgb__colsample_bytree': Real(0.4, 0.9),
-    'xgb__colsample_bylevel': Real(0.4, 0.9),
-    'xgb__colsample_bynode': Real(0.4, 0.9)
-})
 
 mapper = DataFrameMapper([
     (['month'], [SimpleImputer(strategy='most_frequent'), MinMaxScaler()]),
@@ -50,7 +37,17 @@ mapper = DataFrameMapper([
 
 xgboost_pipeline = Pipeline([
     ('mapper', mapper),
-    ('xgb', xgb.XGBClassifier(tree_method='hist'))
+    ('xgb', xgb.XGBClassifier(
+        tree_method='hist',
+        colsample_bylevel=0.8,
+        colsample_bynode=0.4,
+        colsample_bytree=0.8,
+        gamma=0.02092258872266934,
+        learning_rate=0.3,
+        max_depth=7,
+        n_estimators=500,
+        n_jobs=-1
+    ))
 ])
 
 
@@ -60,20 +57,20 @@ def build_xgboost_model():
         load_data_frame(),
         'violation',
         xgboost_pipeline,
-        hyper_parameters
+        None
     )
-    runner.run_classification_search_experiment(
-        'neg_log_loss',
+    runner.run_classification_experiment(
         sample=sample,
-        n_iter=iterations,
+        test_size=0.2,
         multiclass=True,
         record_predict_proba=True
     )
     joblib.dump(
-        runner.trained_estimator,
+        xgboost_pipeline,
         'model/output/xgboost_model.joblib'
     )
 
 
 if __name__ == '__main__':
     build_xgboost_model()
+

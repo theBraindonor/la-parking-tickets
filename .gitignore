@@ -5,4 +5,3 @@
 __pycache__
 /model/experiment/output/*.p
 /model/output/*.p
-/model/output/*.joblib
