@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "google-maps-react": "^2.0.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-scripts": "2.1.5"
@@ -16,6 +18,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "proxy": "http://127.0.0.1:8080",
   "browserslist": [
     ">0.2%",
     "not dead",
