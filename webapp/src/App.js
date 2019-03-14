@@ -1,67 +1,19 @@
 import React, { Component } from 'react';
+import GoogleMapReact from 'google-map-react';
 
-const ticketTypes = {
-    0: {
-        name: 'Street Cleaning',
-        description: 'tbd'
-    },
-    1: {
-        name: 'Meter Expired',
-        description: 'tbd'
-    },
-    2: {
-        name: 'Red Zone',
-        description: 'tbd'
-    },
-    3: {
-        name: 'Preferred Parking',
-        description: 'tbd'
-    },
-    4: {
-        name: 'Display of Tabs/Plate',
-        description: 'tbd'
-    },
-    5: {
-        name: 'No Parking',
-        description: 'tbd'
-    },
-    6: {
-        name: 'Parking Over Time Limit',
-        description: 'tbd'
-    },
-    7: {
-        name: 'White Zone',
-        description: 'tbd'
-    },
-    8: {
-        name: 'No Stopping/Standing',
-        description: 'tbd'
-    },
-    9: {
-        name: 'Yellow Zone',
-        description: 'tbd'
-    },
-    10: {
-        name: 'Improperly Parked',
-        description: 'tbd'
-    },
-    11: {
-        name: 'Fire Hydrant',
-        description: 'tbd'
-    },
-    12: {
-        name: 'Disabled Parking',
-        description: 'tbd'
-    },
-    13: {
-        name: 'Private Property',
-        description: 'tbd'
-    }
-}
+import { Hours, Months, TicketTypes, VehicleMakes, VehilceColors, Weekdays } from './Constants';
 
 const ticketCount = 5
 
 class App extends Component {
+
+    static defaultProps = {
+        center: {
+            lat: '34.05',
+            lng: '-118.24' 
+        },
+        zoom: 9
+    }
 
     constructor(props) {
         super(props);
@@ -78,6 +30,13 @@ class App extends Component {
             },
             tickets: []
         }
+    }
+
+    handleMapClick = ({x, y, lat, lng, event}) => {
+        let newForm = this.state.form;
+        newForm.latitude = lat;
+        newForm.longitude = lng;
+        this.setState({form: newForm});
     }
 
     handleChange = (event) => {
@@ -130,6 +89,21 @@ class App extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6">
+                            <div style={{height: '430px', width: '540px'}}>
+                                <GoogleMapReact
+                                    bootstrapURLKeys={{key: 'AIzaSyCgyB-8lqWqGhTYSlt2VuJyeuEVotFoYO8'}}
+                                    defaultCenter={{lat: 34.05, lng: -118.24}}
+                                    defaultZoom={10}
+                                    onClick={this.handleMapClick}
+                                >
+                                <div
+                                    lat={this.state.form.latitude}
+                                    lng={this.state.form.longitude}
+                                    className="mapMarker"
+                                ></div>
+                                </GoogleMapReact>
+                            </div>
+                            <br />
                             <form onSubmit={this.handleSubmit}>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label" htmlFor="latitude">Latitude</label>
@@ -146,31 +120,61 @@ class App extends Component {
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label" htmlFor="month">Month</label>
                                     <div className="col-sm-9">
-                                        <input className="form-control" type="text" id="month" value={this.state.form.month} onChange={this.handleChange} />
+                                        <select className="form-control" id="month" value={this.state.form.month} onChange={this.handleChange}>
+                                            {Months.map((month) => {
+                                                return (
+                                                    <option key={month.value} value={month.value}>{month.label}</option>
+                                                )
+                                            })}
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label" htmlFor="weekday">Weekday</label>
                                     <div className="col-sm-9">
-                                        <input className="form-control" type="text" id="weekday" value={this.state.form.weekday} onChange={this.handleChange} />
+                                        <select className="form-control" id="weekday" value={this.state.form.weekday} onChange={this.handleChange}>
+                                            {Weekdays.map((weekday) => {
+                                                return (
+                                                    <option key={weekday.value} value={weekday.value}>{weekday.label}</option>
+                                                )
+                                            })}
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label" htmlFor="hour">Hour</label>
                                     <div className="col-sm-9">
-                                        <input className="form-control" type="text" id="hour" value={this.state.form.hour} onChange={this.handleChange} />
+                                        <select className="form-control" id="hour" value={this.state.form.hour} onChange={this.handleChange}>
+                                            {Hours.map((hour) => {
+                                                return (
+                                                    <option key={hour.value} value={hour.value}>{hour.label}</option>
+                                                )
+                                            })}
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label" htmlFor="make">Vehicle Make</label>
                                     <div className="col-sm-9">
-                                        <input className="form-control" type="text" id="make" value={this.state.form.make} onChange={this.handleChange} />
+                                        <select className="form-control" id="make" value={this.state.form.make} onChange={this.handleChange}>
+                                            {VehicleMakes.map((make) => {
+                                                return (
+                                                    <option key={make.value} value={make.value}>{make.label}</option>
+                                                )
+                                            })}
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="form-group row">
                                     <label className="col-sm-3 col-form-label" htmlFor="color">Vehicle Color</label>
                                     <div className="col-sm-9">
-                                        <input className="form-control" type="text" id="color" value={this.state.form.color} onChange={this.handleChange} />
+                                        <select className="form-control" id="color" value={this.state.form.color} onChange={this.handleChange}>
+                                            {VehilceColors.map((color) => {
+                                                return (
+                                                    <option key={color.value} value={color.value}>{color.label}</option>
+                                                )
+                                            })}
+                                        </select>
                                     </div>
                                 </div>
                                 <div className="row justify-content-end">
@@ -179,6 +183,7 @@ class App extends Component {
                                     </div>
                                 </div>
                             </form>
+                            <br />
                         </div>
                         {this.state.tickets.length > 0 &&
                         <div className="col-lg-6">
@@ -187,8 +192,8 @@ class App extends Component {
                             {this.state.tickets.map((ticket) => {
                                 return (
                                     <div key={ticket[0]} className="row justify-content-end">
-                                        <div className="col-sm-12"><b>{ticketTypes[ticket[0]].name}</b></div>
-                                        <div className="col-sm-10">{ticketTypes[ticket[0]].description}<br /><br /></div>
+                                        <div className="col-sm-12"><b>{TicketTypes[ticket[0]].name}</b></div>
+                                        <div className="col-sm-10">{TicketTypes[ticket[0]].description}<br /><br /></div>
                                     </div>
                                 )
                             })}
