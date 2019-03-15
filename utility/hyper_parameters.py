@@ -5,12 +5,15 @@ __author__ = "John Hoff"
 __email__ = "john.hoff@braindonor.net"
 __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
-__version__ = "1.0"
+__version__ = "1.0.0"
 
 import pickle
 
 
 class HyperParameters:
+    """
+    The HyperPamaters class is used to pickle trained hyperparameters and reload them into an estimator.
+    """
     def __init__(self, search_space=None, params=None):
         self._search_space = search_space
         self._params = params

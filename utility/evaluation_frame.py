@@ -5,12 +5,16 @@ __author__ = "John Hoff"
 __email__ = "john.hoff@braindonor.net"
 __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
-__version__ = "1.0"
+__version__ = "1.0.0"
 
 import pickle
 
 
 class EvaluationFrame:
+    """
+    The EvaluationFrame class allows for predictions from the test partitions to be pickled and unpickled cleanly.
+    This is important for running model evaluations outside of actual model construction.
+    """
     def __init__(self, y_actual, y_predict):
         self._y_actual = y_actual
         self._y_predict = y_predict

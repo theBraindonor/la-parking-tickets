@@ -5,17 +5,18 @@ __author__ = "John Hoff"
 __email__ = "john.hoff@braindonor.net"
 __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
-__version__ = "1.0"
+__version__ = "1.0.0"
 
 import numpy as np
 import pandas as pd
-
-from collections import Counter
 
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score, roc_auc_score, log_loss
 
 
 class Evaluator:
+    """
+    The Evaluator class allows for a single routine to display performance of all models being built.
+    """
     def __init__(self, logger):
         self.logger = logger
 

@@ -23,7 +23,7 @@ if __name__ == "__main__":
     logger = Logger('data_scratch/sample.txt')
 
     sample_seed = 1027
-    sample_rate = 0.20
+    sample_rate = 0.10
     raw_record_count = -1
     processed_records = 0
 

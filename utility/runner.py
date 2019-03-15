@@ -5,9 +5,7 @@ __author__ = "John Hoff"
 __email__ = "john.hoff@braindonor.net"
 __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
-__version__ = "1.0"
-
-import pandas as pd
+__version__ = "1.0.0"
 
 from skopt import BayesSearchCV
 
@@ -17,6 +15,9 @@ from utility import batch_predict, batch_predict_proba, EvaluationFrame, Evaluat
 
 
 class Runner:
+    """
+    The runner class allows for multiple model generation scripts to use the same base code.
+    """
     def __init__(
             self,
             name,
@@ -37,6 +38,9 @@ class Runner:
             test_size=0.25,
             multiclass=False,
             record_predict_proba=False):
+        """
+        Running a classification experiment is used when only a single model run and fit is necessary.
+        """
         use_project_path()
 
         logger = Logger('%s.txt' % self.name)
@@ -103,6 +107,9 @@ class Runner:
             verbose=3,
             multiclass=False,
             record_predict_proba=False):
+        """
+        The classification search makes use of a bayesian search to find the best hyper-parameters.
+        """
         use_project_path()
 
         logger = Logger('%s.txt' % self.name)

@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 
 """
-    Functions for calling estimator predictions in batches
+    Functions for calling estimator predictions in batches.  Runs everything in 100 batches to circumvent
+    memory limitations in some models.
 """
 
 __author__ = "John Hoff"
 __email__ = "john.hoff@braindonor.net"
 __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
-__version__ = "1.0"
+__version__ = "1.0.0"
 
 import numpy as np
 

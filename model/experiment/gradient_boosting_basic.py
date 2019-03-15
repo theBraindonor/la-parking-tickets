@@ -19,8 +19,8 @@ from sklearn.pipeline import Pipeline
 from utility import HyperParameters, Runner
 from model import load_sample_data_frame, ordinal_data_mapper
 
-sample = 15000
-iterations = 2
+sample = None
+iterations = 24
 
 hyper_parameters = HyperParameters({
     'gb__learning_rate': Real(0.001, 0.1),
