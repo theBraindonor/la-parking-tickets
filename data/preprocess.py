@@ -11,7 +11,7 @@ __author__ = "John Hoff"
 __email__ = "john.hoff@braindonor.net"
 __copyright__ = "Copyright 2019, John Hoff"
 __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License"
-__version__ = "1.0"
+__version__ = "1.0.0"
 
 import csv
 from datetime import datetime
@@ -469,12 +469,18 @@ if __name__ == '__main__':
                     if latitude == '99999':
                         missing_data['latitude'] += 1
                         latitude = None
+                    elif float(latitude) > 10000000:
+                        missing_data['latitude'] += 1
+                        latitude = None
                 else:
                     missing_data['latitude'] += 1
                     latitude = None
 
                 if longitude:
                     if longitude == '99999':
+                        missing_data['longitude'] += 1
+                        longitude = None
+                    elif float(longitude) > 10000000:
                         missing_data['longitude'] += 1
                         longitude = None
                 else:

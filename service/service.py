@@ -12,6 +12,7 @@ __license__ = "Creative Commons Attribution-ShareAlike 4.0 International License
 __version__ = "1.0"
 
 import pandas as pd
+import utm
 
 from flask import Flask, jsonify, request
 
@@ -27,6 +28,12 @@ model = None
 @app.route('/ticketPrediction', methods=['POST'])
 def ticket_prediction():
     input_df = pd.DataFrame(request.json, index=[0])
+    latitude = float(input_df['latitude'][0])
+    longitude = float(input_df['longitude'][0])
+    if latitude < 1000 or longitude < 1000:
+        utm_latitude, utm_longitude, zone_number, zone_letter = utm.from_latlon(latitude, longitude)
+        input_df['latitude'] = [utm_latitude]
+        input_df['longitude'] = [utm_longitude]
     prediction = model.predict_proba(input_df)
     return jsonify(prediction[0].tolist())
     pass

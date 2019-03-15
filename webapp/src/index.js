@@ -1,3 +1,8 @@
+/*
+Copyright 2019, John Hoff <john.hoff@braindonor.net>
+Creative Commons Attribution-ShareAlike 4.0 International License
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';

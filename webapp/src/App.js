@@ -1,3 +1,8 @@
+/*
+Copyright 2019, John Hoff <john.hoff@braindonor.net>
+Creative Commons Attribution-ShareAlike 4.0 International License
+*/
+
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
@@ -20,8 +25,8 @@ class App extends Component {
 
         this.state = {
             form: {
-                longitude: '34.05',
-                latitude: '-118.24',
+                latitude: '34.05',
+                longitude: '-118.24',
                 month: '3.0',
                 weekday: '4.0',
                 hour: '14.0',

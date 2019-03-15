@@ -13,3 +13,5 @@ _Please Note: Before running this application, the Python Flask service that pro
 `yarn start`
 
 Will run the application and open http://localhost:3000/ to view in a browser.
+
+For more information, refer to the README.md in the parent directory.

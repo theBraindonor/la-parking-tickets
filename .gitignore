@@ -3,5 +3,6 @@
 /venv
 /data_scratch
 __pycache__
+.ipynb_checkpoints
 /model/experiment/output/*.p
 /model/output/*.p

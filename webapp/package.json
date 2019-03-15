@@ -1,7 +1,9 @@
 {
-  "name": "webapp",
-  "version": "0.1.0",
-  "private": true,
+  "name": "la-parking-ticket-webapp",
+  "version": "1.0.0",
+  "description": "LA Parketing Ticket Prediction Web Application",
+  "author": "John Hoff <john.hoff@braindonor.net",
+  "license": "CC-BY-SA-4.0",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "google-map-react": "^1.1.2",

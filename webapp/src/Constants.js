@@ -1,3 +1,7 @@
+/*
+Copyright 2019, John Hoff <john.hoff@braindonor.net>
+Creative Commons Attribution-ShareAlike 4.0 International License
+*/
 
 export const TicketTypes = {
     0: {
