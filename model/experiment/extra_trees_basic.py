@@ -23,7 +23,7 @@ sample = None
 iterations = 24
 
 hyper_parameters = HyperParameters({
-    'et__n_estimators': Integer(10, 100),
+    'et__n_estimators': Integer(10, 20),
     'et__criterion': Categorical(['gini', 'entropy']),
     'et__max_depth': Integer(4, 24),
     'et__min_samples_leaf': Real(0.000001, 0.001),

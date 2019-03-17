@@ -24,7 +24,7 @@ iterations = 24
 
 hyper_parameters = HyperParameters({
     'gb__learning_rate': Real(0.001, 0.1),
-    'gb__n_estimators': Integer(50, 500),
+    'gb__n_estimators': Integer(50, 100),
     'gb__subsample': Real(0.5, 1),
     'gb__max_depth': Integer(3, 7),
     'gb__min_samples_leaf': Real(0.00001, 0.01),

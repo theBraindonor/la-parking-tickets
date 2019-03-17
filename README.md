@@ -3,10 +3,21 @@
 _A Machine Learning Application for Parking Tickets in Los Angeles, California._
 
 This project was created for DSC 478: Programming Machine Learning Applications as part of the
-Master's in Data Science program at DePaul University in Chicago, IL during the winter 2019
+Master's in Data Science program at DePaul University in Chicago during the winter 2019
 quarter.  In this class, students were tasked with creating a data analysis or application
 development project.  This project is primarily a data analysis project but also contains a
 small application to demonstrate how the predictive model can be deployed.
+
+For additional information, please refer to the included `Executive_Summary.pdf` and `Project_Paper.pdf`
+in the repository root. (forthcoming)
+
+### Author
+
+John Hoff <john.hoff@braindonor.net>
+
+### License
+
+Creative Commons Attribution-ShareAlike 4.0 International License
 
 ## Data Source
 
@@ -63,9 +74,12 @@ given the values entered into the form.
 
 This analysis has been constructed with replication in mind.  Data from the Los Angeles Open
 Data Portal should be saved in `data_scratch/Parking_Citations.csv`.  This file was too large
-to be included.
+to be included in this repository.
 
 ### PreProcessing
+
+All preprocessing can be done using the following commands.  Each command will give a report on how
+the data has been transformed.
 
 ```
 python -m data.preprocess
@@ -74,11 +88,16 @@ python -m data.sample
 
 ### Initial Data Exploration
 
+Initial statistical analysis of the data has been compiled into a jupiter notebook.
+
 ```
 python -m jupyter notebook notebooks/data_exploration.ipynb
 ```
 
 ### Exploratory Model Building
+
+Initial model exploration is done using the sample data created in the previous step.  Each model
+is constructed using 10% of data.  Be aware that some of these commands will take hours to run.
 
 ```
 python -m model.experiment.bernoulli_naive_bayes_basic
@@ -94,11 +113,17 @@ python -m model.experiment.xgboost_basic
 
 ### Exploratory Model Evaluation
 
+Each of the exploratory models and the final model have a classification report captured in
+a jupyter notebook.
+
 ```
 python -m jupyter notebook notebooks/model_comparisons.ipynb
 ```
 
 ### Final Model Building
+
+A final XGBoost model is built using all the available parking ticket data.  Be aware that this model
+will take over an hour to run.
 
 ```
 python -m model.xgboost_model

@@ -1,0 +1,106 @@
+[2019-03-15 00:20:34.297976] Starting HyperParameter Search...
+[2019-03-15 12:13:53.323489] Search Complete.
+
+[2019-03-15 12:13:53.323489] Testing Training Partition...
+[2019-03-15 12:42:10.335512] Testing Complete.
+
+[2019-03-15 12:42:10.335512] Testing Holdout Partition...
+[2019-03-15 12:51:35.983194] Testing Complete.
+
+[2019-03-15 12:51:36.001187] Testing Holdout Partition (probability)...
+[2019-03-15 13:01:01.736841] Testing Complete.
+
+
+Best Score:
+-1.0114237598886464
+
+Best Parameters:
+{'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.0029609076899835903, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+
+Classification Report:
+              precision    recall  f1-score   support
+
+         0.0       0.83      0.98      0.90     51628
+         1.0       0.67      0.90      0.77     36876
+         2.0       0.52      0.46      0.49     13591
+         3.0       0.79      0.91      0.85     13916
+         4.0       0.36      0.17      0.24     17250
+         5.0       0.72      0.63      0.67      9033
+         6.0       0.60      0.52      0.56     10357
+         7.0       0.67      0.54      0.60      4918
+         8.0       0.65      0.61      0.63     12639
+         9.0       0.51      0.18      0.27      2000
+        10.0       0.39      0.15      0.22      9092
+        11.0       0.32      0.07      0.12      1572
+        12.0       0.66      0.24      0.35       925
+        13.0       0.74      0.28      0.41       441
+
+   micro avg       0.70      0.70      0.70    184238
+   macro avg       0.60      0.48      0.50    184238
+weighted avg       0.66      0.70      0.67    184238
+
+
+Confusion Matrix:
+       0      1     2      3     4     5     6     7     8    9     10   11   12   13
+0   50777    393    45     76   130    38    86    12    38    6    17    4    4    2
+1    1421  33170   407    371   357    92   420    59   398   89    76   10    4    2
+2     963   2251  6280    323   954   404   451   315   856   66   650   57   11   10
+3     244    406    60  12652   232    59   144    22    64    4    27    0    0    2
+4    3567   5041   928   1242  3013   596  1041   354   908   71   398   46   35   10
+5     683    497   473    184   557  5650   242   109   416   10   187   16    7    2
+6     927   1819   287    292   804   166  5401    68   352   26   188   16    9    2
+7     215    797   311    149   264   147   115  2658   179    9    59    7    7    1
+8     736   1383  1024    185   583   257   336   112  7657   25   290   29   15    7
+9     140    966   100     18    81    32    86    15   152  370    36    4    0    0
+10   1054   2132  1576    362   962   286   498   141   614   43  1368   46    9    1
+11    166    212   401     40   191    57    80    34   129    6   130  115    8    3
+12     82    227    71     10    85    19    56    42    74    3    29    3  222    2
+13     45     74    50     16    55    15    19     6    11    0    18    2    6  124
+
+Accuracy:
+   Train: 0.786010
+ Testing: 0.702662
+
+Log-Loss: 0.991649
+
+Feature Importance:
+          Feature  Importance
+7       longitude    0.209355
+6        latitude    0.205264
+2            hour    0.133001
+4            make    0.113698
+0           month    0.103925
+1         weekday    0.086758
+5           color    0.085249
+3           state    0.026116
+10  domestic_make    0.017414
+9     luxury_make    0.014823
+8    out_of_state    0.004398
+
+Search Scoring
+    mean_test_score  std_test_score  mean_train_score  std_train_score  mean_fit_time  mean_score_time                                                                                                                                                                                                                                                           params
+23        -1.011424        0.001768         -0.676261         0.001677    1582.988975       456.471865                                                       {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.0029609076899835903, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+15        -1.011621        0.002976         -0.676175         0.001416    1262.320098       328.153850                                                                      {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.0001, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+19        -1.012265        0.002619         -0.677058         0.001005    1258.141854       400.114728                                                       {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.4, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.0004908514067188158, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+22        -1.018753        0.001957         -0.754653         0.001051    1579.967243       446.857980                                       {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.00032172200805868554, 'xgb__learning_rate': 0.2199957994329885, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+20        -1.019148        0.002135         -0.726154         0.001433    1313.957364       396.539888                                        {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.7444632341967867, 'xgb__gamma': 0.0020413819343880197, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 411}
+21        -1.023477        0.002996         -0.703584         0.001498    1596.007556       454.507700                                        {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.7004950985948213, 'xgb__gamma': 0.0005148258338439532, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+16        -1.025379        0.002964         -0.704780         0.001482    1261.066305       310.086505                                          {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.6976417378375817, 'xgb__gamma': 0.03687633142677157, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+17        -1.043420        0.002970         -0.724974         0.001234    1282.774871       311.921510                                        {'xgb__colsample_bylevel': 0.5490889588056492, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.0031224964903957754, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 500}
+3         -1.114586        0.001472         -0.989326         0.000622     498.346893        80.859793  {'xgb__colsample_bylevel': 0.7984340279667985, 'xgb__colsample_bynode': 0.6883882465259521, 'xgb__colsample_bytree': 0.6666277381302372, 'xgb__gamma': 0.08576866222166886, 'xgb__learning_rate': 0.23357507881413764, 'xgb__max_depth': 7, 'xgb__n_estimato...
+18        -1.141057        0.003482         -1.043239         0.003408     270.158044        29.521834                                                                      {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.8, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 0.0001, 'xgb__learning_rate': 0.3, 'xgb__max_depth': 7, 'xgb__n_estimators': 100}
+10        -1.206686        0.006825         -1.105703         0.006007     464.442680        78.838450           {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.7949119268017816, 'xgb__colsample_bytree': 0.4249379814486536, 'xgb__gamma': 0.008424232308841699, 'xgb__learning_rate': 0.2715880276087611, 'xgb__max_depth': 7, 'xgb__n_estimators': 173}
+11        -1.234477        0.003052         -1.216122         0.004603     697.138868        52.242668              {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.551605558401587, 'xgb__colsample_bytree': 0.6307399559462017, 'xgb__gamma': 13.845437597866042, 'xgb__learning_rate': 0.1457351166802175, 'xgb__max_depth': 7, 'xgb__n_estimators': 273}
+0         -1.245261        0.003950         -1.153411         0.003734    1105.776288       294.824541  {'xgb__colsample_bylevel': 0.5657290489833864, 'xgb__colsample_bynode': 0.7686076779123803, 'xgb__colsample_bytree': 0.40886960629114255, 'xgb__gamma': 0.3622198647787287, 'xgb__learning_rate': 0.12740005695432488, 'xgb__max_depth': 7, 'xgb__n_estimato...
+13        -1.245742        0.004630         -1.228346         0.003462     371.710532        18.171312             {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.6562184349776778, 'xgb__colsample_bytree': 0.5522788889978701, 'xgb__gamma': 15.72972934331357, 'xgb__learning_rate': 0.25063207418211264, 'xgb__max_depth': 7, 'xgb__n_estimators': 144}
+9         -1.287421        0.001086         -1.261820         0.000826     939.191021       120.538135  {'xgb__colsample_bylevel': 0.7607487740880569, 'xgb__colsample_bynode': 0.682366486179485, 'xgb__colsample_bytree': 0.7509798961054197, 'xgb__gamma': 0.006458756108139756, 'xgb__learning_rate': 0.10762304042942245, 'xgb__max_depth': 4, 'xgb__n_estimato...
+12        -1.301545        0.003196         -1.273641         0.002697     284.219088        28.085097                                                          {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.4, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 3.0031097375618225, 'xgb__learning_rate': 0.1, 'xgb__max_depth': 7, 'xgb__n_estimators': 100}
+7         -1.305592        0.003043         -1.293868         0.002898     901.526828        46.632887  {'xgb__colsample_bylevel': 0.49807675504391846, 'xgb__colsample_bynode': 0.6228268120231514, 'xgb__colsample_bytree': 0.729526580762692, 'xgb__gamma': 22.126965634333615, 'xgb__learning_rate': 0.21200139289335168, 'xgb__max_depth': 5, 'xgb__n_estimator...
+4         -1.313761        0.003113         -1.278224         0.003213     775.535259        85.632248  {'xgb__colsample_bylevel': 0.5108424515114036, 'xgb__colsample_bynode': 0.7182561045181608, 'xgb__colsample_bytree': 0.5804565362721437, 'xgb__gamma': 0.0004117055431815592, 'xgb__learning_rate': 0.2149470345846164, 'xgb__max_depth': 4, 'xgb__n_estimat...
+6         -1.334618        0.000556         -1.310860         0.000870     473.397578        34.192319  {'xgb__colsample_bylevel': 0.6712943520437742, 'xgb__colsample_bynode': 0.5636195053854743, 'xgb__colsample_bytree': 0.7021422310907766, 'xgb__gamma': 0.0013059054453781794, 'xgb__learning_rate': 0.20802495784066394, 'xgb__max_depth': 4, 'xgb__n_estima...
+1         -1.346425        0.001842         -1.295960         0.002846     675.204827       103.901327  {'xgb__colsample_bylevel': 0.42803526273812753, 'xgb__colsample_bynode': 0.47446737197677025, 'xgb__colsample_bytree': 0.6213503587036655, 'xgb__gamma': 0.0002592121926478563, 'xgb__learning_rate': 0.13550349808548157, 'xgb__max_depth': 6, 'xgb__n_esti...
+8         -1.417802        0.001868         -1.412523         0.002953     520.291580        21.875911  {'xgb__colsample_bylevel': 0.5581411736439367, 'xgb__colsample_bynode': 0.580627939974705, 'xgb__colsample_bytree': 0.7458917505601494, 'xgb__gamma': 47.09530414175015, 'xgb__learning_rate': 0.10964442787478877, 'xgb__max_depth': 5, 'xgb__n_estimators'...
+5         -1.434164        0.003145         -1.410141         0.003763     360.871445        29.233131  {'xgb__colsample_bylevel': 0.4513868001833781, 'xgb__colsample_bynode': 0.4021298291742056, 'xgb__colsample_bytree': 0.5737198120963212, 'xgb__gamma': 0.022140143737738927, 'xgb__learning_rate': 0.17381545750104405, 'xgb__max_depth': 5, 'xgb__n_estimat...
+2         -1.507642        0.003124         -1.486932         0.002901     350.507000        25.373976  {'xgb__colsample_bylevel': 0.405492181457985, 'xgb__colsample_bynode': 0.5095441548485741, 'xgb__colsample_bytree': 0.42323519098812995, 'xgb__gamma': 0.000384940871609929, 'xgb__learning_rate': 0.1796511010185497, 'xgb__max_depth': 6, 'xgb__n_estimato...
+14        -1.566360        0.001579         -1.564851         0.001328     383.577686        12.192849                                                        {'xgb__colsample_bylevel': 0.8, 'xgb__colsample_bynode': 0.5274951725202564, 'xgb__colsample_bytree': 0.8, 'xgb__gamma': 100.0, 'xgb__learning_rate': 0.1, 'xgb__max_depth': 3, 'xgb__n_estimators': 204}
+

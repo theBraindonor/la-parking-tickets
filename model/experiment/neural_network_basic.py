@@ -15,13 +15,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.neural_network import MLPClassifier
 
 from utility import Runner
-from model import load_sample_data_frame, one_hot_data_mapper
+from model import load_sample_data_frame, binned_geo_one_hot_data_mapper
 
 sample = None
 
 neural_network_basic = Pipeline([
-    ('mapper', one_hot_data_mapper),
-    ('nn', MLPClassifier(activation='logistic', hidden_layer_sizes=(200, 110, ), max_iter=500, verbose=True))
+    ('mapper', binned_geo_one_hot_data_mapper),
+    ('nn', MLPClassifier(activation='logistic', hidden_layer_sizes=(600, 150, ), max_iter=200, verbose=True))
 ])
 
 
