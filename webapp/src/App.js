@@ -8,7 +8,7 @@ import GoogleMapReact from 'google-map-react';
 
 import { Hours, Months, TicketTypes, VehicleMakes, VehilceColors, Weekdays } from './Constants';
 
-const ticketCount = 5
+const ticketCount = 4
 
 class App extends Component {
 

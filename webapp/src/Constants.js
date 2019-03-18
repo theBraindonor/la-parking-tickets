@@ -6,59 +6,59 @@ Creative Commons Attribution-ShareAlike 4.0 International License
 export const TicketTypes = {
     0: {
         name: 'Street Cleaning',
-        description: 'tbd'
+        description: 'Look for Street Cleaning Signs.  These will only apply to certain days and times.'
     },
     1: {
         name: 'Meter Expired',
-        description: 'tbd'
+        description: 'Be sure to check that your parking meter is not expired.'
     },
     2: {
         name: 'Red Zone',
-        description: 'tbd'
+        description: 'Be on the look out for a red-colored curb.  There is no stopping, parking or standing at these curbs.'
     },
     3: {
         name: 'Preferred Parking',
-        description: 'tbd'
+        description: 'Be sure to check for Permit Parking signs.  Parking may be restricted unless a vehicle displays the proper permit.'
     },
     4: {
         name: 'Display of Tabs/Plate',
-        description: 'tbd'
+        description: 'Be sure to double check your license plate and/or registration sticker.'
     },
     5: {
         name: 'No Parking',
-        description: 'tbd'
+        description: 'Be sure to check for No Parking signs.  Be sure to check if this only applies to certain days and times.'
     },
     6: {
         name: 'Parking Over Time Limit',
-        description: 'tbd'
+        description: 'Be sure to check for Time Limit Parking signs.  Time limit areas may also have meters.'
     },
     7: {
         name: 'White Zone',
-        description: 'tbd'
+        description: 'Be sure to check for a white-colored curb.  These are for passenger loading and unloading, but only for a maximum of five minutes.'
     },
     8: {
         name: 'No Stopping/Standing',
-        description: 'tbd'
+        description: 'Be sure to check for No Stopping signs.  May only apply to certain times and/or days.  Applies to residential and commercial vehicles.'
     },
     9: {
         name: 'Yellow Zone',
-        description: 'tbd'
+        description: 'Be sure to check for a yellow-colored curb.  Vehicles without a commercial license plate may load and unload passengers, but only for a maximum of five minutes.'
     },
     10: {
         name: 'Improperly Parked',
-        description: 'tbd'
+        description: 'General parking rules. No parking in alleys, sidewalks, crosswalks, bus stop, tunnel, etc.'
     },
     11: {
         name: 'Fire Hydrant',
-        description: 'tbd'
+        description: 'Be sure to check for a hydrant or fire station driveway.  Stopping, standing or parking are prohibited within 15 feet.'
     },
     12: {
         name: 'Disabled Parking',
-        description: 'tbd'
+        description: 'Be sure to check for a handicap parking sign and/or a blue-colored curb.  Vehicles not displaying a disabled parking placard or disabled license place are prohibited.'
     },
     13: {
         name: 'Private Property',
-        description: 'tbd'
+        description: 'Be sure to check for any private property signs.'
     }
 }
 
