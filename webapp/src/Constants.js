@@ -14,7 +14,7 @@ export const TicketTypes = {
     },
     2: {
         name: 'Red Zone',
-        description: 'Be on the look out for a red-colored curb.  There is no stopping, parking or standing at these curbs.'
+        description: 'Be sure to check for a red-colored curb.  There is no stopping, parking or standing at these curbs.'
     },
     3: {
         name: 'Preferred Parking',
